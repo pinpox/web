@@ -103,19 +103,6 @@ index 8581e239..24ae6788 100644
                          <i class="fa fa-fw fa-question-circle" aria-hidden="true"></i>
                          {{'getHelp' | i18n}}
                      </a>
-diff --git a/src/app/organizations/settings/organization-subscription.component.ts b/src/app/organizations/settings/organization-subscription.component.ts
-index cbe8e918..4616b57f 100644
---- a/src/app/organizations/settings/organization-subscription.component.ts
-+++ b/src/app/organizations/settings/organization-subscription.component.ts
-@@ -112,7 +112,7 @@ export class OrganizationSubscriptionComponent implements OnInit {
-         const contactSupport = await this.platformUtilsService.showDialog(this.i18nService.t('changeBillingPlanDesc'),
-             this.i18nService.t('changeBillingPlan'), this.i18nService.t('contactSupport'), this.i18nService.t('close'));
-         if (contactSupport) {
--            this.platformUtilsService.launchUri('https://bitwarden.com/contact');
-+            this.platformUtilsService.launchUri('https://github.com/dani-garcia/vaultwarden');
-         }
-     }
- 
 diff --git a/src/app/organizations/vault/vault.component.ts b/src/app/organizations/vault/vault.component.ts
 index 288bb28b..2d213c46 100644
 --- a/src/app/organizations/vault/vault.component.ts

@@ -62,7 +62,7 @@ export class VaultComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.trashCleanupWarning = this.i18nService.t(
-            this.platformUtilsService.isSelfHost() ? 'trashCleanupWarningSelfHosted' : 'trashCleanupWarning'
+            'trashCleanupWarningSelfHosted'
         );
 
         const queryParams = this.route.parent.params.subscribe(async params => {

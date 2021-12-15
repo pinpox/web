@@ -55,3 +55,54 @@
 @import "./plugins";
 @import "./tables";
 @import "./toasts";
+
+/**** START Bitwarden_RS CHANGES ****/
+/* This combines all selectors extending it into one */
+%bwrs-hide { display: none !important; }
+
+/* This allows searching for the combined style in the browsers dev-tools (look into the head tag) */
+#bwrs-hide, head { @extend %bwrs-hide; }
+
+/* Hide any link pointing to billing */
+a[href$="/settings/billing"] { @extend %bwrs-hide; }
+
+/* Hide any link pointing to subscriptions */
+a[href$="/settings/subscription"] { @extend %bwrs-hide; }
+
+/* Hide the `Enterprise Single Sign-On` button on the login page */
+a[href$="/sso"] { @extend %bwrs-hide; }
+
+/* Hide the info box that advertises Bitwarden Send */
+app-send-info.d-block { @extend %bwrs-hide; }
+
+/* Hide Two-Factor menu in Organization settings */
+app-org-settings a[href$="/settings/two-factor"] { @extend %bwrs-hide; }
+
+/* Hide organization plans */
+app-organization-plans > form > div.form-check { @extend %bwrs-hide; }
+app-organization-plans > form > h2.mt-5 { @extend %bwrs-hide; }
+
+/* Hide the `This account is owned by a business` checkbox and label */
+#ownedBusiness, label[for^=ownedBusiness] { @extend %bwrs-hide; }
+
+/* Hide the `API Key` section under `My Account` */
+app-account > div:nth-child(9),
+app-account > p,
+app-account > button:nth-child(11),
+app-account > button:nth-child(12) {
+    @extend %bwrs-hide;
+}
+
+/* Hide the radio button and label for the `Custom` org user type */
+#userTypeCustom, label[for^=userTypeCustom] {
+    @extend %bwrs-hide;
+}
+
+/* Hide the warning that policy config is moving to Business Portal */
+app-org-policies > app-callout { @extend %bwrs-hide; }
+
+/* Hide Tax Info and Form in Organization settings */
+app-org-account > div.secondary-header:nth-child(3) { @extend %bwrs-hide; }
+app-org-account > div.secondary-header:nth-child(3) + p { @extend %bwrs-hide; }
+app-org-account > div.secondary-header:nth-child(3) + p + form { @extend %bwrs-hide; }
+/**** END Bitwarden_RS CHANGES ****/

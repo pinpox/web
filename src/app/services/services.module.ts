@@ -147,12 +147,23 @@ const eventLoggingService = new EventLoggingService(storageService, apiService, 
 containerService.attachToWindow(window);
 
 export function initFactory(): Function {
+    function getBaseUrl() {
+        // If the base URL is `https://bitwarden.example.com/base/path/`,
+        // `window.location.href` should have one of the following forms:
+        //
+        // - `https://bitwarden.example.com/base/path/`
+        // - `https://bitwarden.example.com/base/path/#/some/route[?queryParam=...]`
+        //
+        // We want to get to just `https://bitwarden.example.com/base/path`.
+        let baseUrl = window.location.href;
+        baseUrl = baseUrl.replace(/#.*/, '');  // Strip off `#` and everything after.
+        baseUrl = baseUrl.replace(/\/+$/, ''); // Trim any trailing `/` chars.
+        return baseUrl;
+    }
     return async () => {
         await (storageService as HtmlStorageService).init();
 
-        const urls = process.env.URLS as Urls;
-        urls.base ??= window.location.origin;
-        environmentService.setUrls(urls, false);
+        environmentService.setUrls({ base: getBaseUrl() }, false);
 
         setTimeout(() => notificationsService.init(), 3000);
 

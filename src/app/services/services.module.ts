@@ -155,9 +155,10 @@ export function initFactory(): Function {
         // - `https://bitwarden.example.com/base/path/#/some/route[?queryParam=...]`
         //
         // We want to get to just `https://bitwarden.example.com/base/path`.
-        let baseUrl = window.location.href;
+        let baseUrl = window.location.origin + window.location.pathname;
         baseUrl = baseUrl.replace(/#.*/, '');  // Strip off `#` and everything after.
         baseUrl = baseUrl.replace(/\/+$/, ''); // Trim any trailing `/` chars.
+		console.log("getbaseURL :" , baseUrl);
         return baseUrl;
     }
     return async () => {

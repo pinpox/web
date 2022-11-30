@@ -7,9 +7,15 @@ document.addEventListener('DOMContentLoaded', event => {
     const code = getQsParam('code');
     const state = getQsParam('state');
 
+	console.log("sso.ts test");
+	console.log(code);
+	console.log(state);
+
     if (state != null && state.includes(':clientId=browser')) {
+	console.log("sso.ts/if");
         initiateBrowserSso(code, state);
     } else {
+	console.log("sso.ts/else");
         window.location.href = window.location.origin + '/#/sso?code=' + code + '&state=' + state;
         // Match any characters between "_returnUri='" and the next "'"
         const returnUri = extractFromRegex(state, '(?<=_returnUri=\')(.*)(?=\')');

@@ -37,6 +37,7 @@ export class SsoComponent extends BaseSsoComponent {
 
     async ngOnInit() {
         super.ngOnInit();
+		console.log("sso.component.ts");
         const queryParamsSub = this.route.queryParams.subscribe(async qParams => {
             if (qParams.identifier != null) {
                 this.identifier = qParams.identifier;

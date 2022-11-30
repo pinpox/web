@@ -70,7 +70,7 @@ a[href$="/settings/billing"] { @extend %bwrs-hide; }
 a[href$="/settings/subscription"] { @extend %bwrs-hide; }
 
 /* Hide the `Enterprise Single Sign-On` button on the login page */
-a[href$="/sso"] { @extend %bwrs-hide; }
+// a[href$="/sso"] { @extend %bwrs-hide; }
 
 /* Hide the info box that advertises Bitwarden Send */
 app-send-info.d-block { @extend %bwrs-hide; }
